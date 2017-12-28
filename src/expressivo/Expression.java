@@ -17,7 +17,9 @@ package expressivo;
 public interface Expression {
     
     // Datatype definition
-    //   TODO
+    //   Expression = Number(n:int) + 
+    //      Plus(left:Expression, right:Expression) + 
+    //      Into(left:Expression, right:Expression)
     
     /**
      * Parse an expression.
@@ -52,6 +54,19 @@ public interface Expression {
     @Override
     public int hashCode();
     
-    // TODO more instance methods
+    // static methods   
+    public static Expression makeNumber(double number)
+    {
+        return new Number(number);
+    }
     
+    public static Expression makePlus(Expression left, Expression right)
+    {
+        return new Plus(left, right);
+    }
+    
+    public static Expression makeInto(Expression left, Expression right)
+    {
+        return new Into(left, right);
+    }
 }
