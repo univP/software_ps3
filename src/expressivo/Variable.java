@@ -1,0 +1,47 @@
+/**
+ * 
+ */
+package expressivo;
+
+/**
+ * @author pao214
+ *
+ */
+public class Variable implements Expression {
+    private final String variable;
+
+    // Abstraction function
+    // :represents a variable
+    // Rep invariant
+    // :true
+    // Safety from rep exposure
+    // :all fields are private, final and immutable
+
+    public Variable(String variable) {
+        this.variable = variable;
+    }
+
+    public String getVariable() {
+        return variable;
+    }
+
+    @Override
+    public String toString() {
+        return variable;
+    }
+
+    @Override
+    public boolean equals(Object thatObject) {
+        if (!(thatObject instanceof Variable)) {
+            return false;
+        }
+
+        Variable thatVariable = (Variable) thatObject;
+        return thatVariable.getVariable().equals(variable);
+    }
+
+    @Override
+    public int hashCode() {
+        return variable.hashCode();
+    }
+}
