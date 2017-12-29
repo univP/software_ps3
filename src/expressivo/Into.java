@@ -9,7 +9,14 @@ package expressivo;
  *
  */
 public class Into implements Expression {
-    Expression left, right;
+    private final Expression left, right;
+    
+    // Abstraction function
+    //   represents product of two expressions left*right
+    // Rep invariant
+    //   true
+    // Safety from rep exposure
+    //   all fields are private, final and immutable
     
     Into(Expression left, Expression right)
     {
@@ -27,6 +34,9 @@ public class Into implements Expression {
         return right;
     }
     
+    /**
+     * Each expression surrounded by brackets and joined using into
+     */
     @Override
     public String toString() {
         return "("+left.toString()+")*("+right.toString()+")";

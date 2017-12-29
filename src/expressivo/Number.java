@@ -9,7 +9,14 @@ package expressivo;
  * 
  */
 public class Number implements Expression {
-    double number;
+    private final double number;
+    
+    // Abstraction function
+    //   represents the double number
+    // Rep invariant
+    //   true
+    // Safety from rep exposure
+    //   all fields private, final and immutable.
     
     Number(double number)
     {
