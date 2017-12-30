@@ -13,7 +13,8 @@ import org.junit.Test;
 public class CommandsTest {
 
     // Testing strategy
-    //   TODO
+    // differentiate():
+    // :constant, x*x*x - 3times w.r.t. (x, y), 6*x*x+3*y*x w.r.t (x, y)
     
     @Test(expected=AssertionError.class)
     public void testAssertionsEnabled() {

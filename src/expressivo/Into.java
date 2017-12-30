@@ -52,4 +52,10 @@ public class Into implements Expression {
     public int hashCode() {
         return left.hashCode() ^ right.hashCode();
     }
+
+    @Override
+    public Expression differentiate(String variable) {
+        return Expression.makePlus(Expression.makeInto(left, right.differentiate(variable)),
+                Expression.makeInto(left.differentiate(variable), right));
+    }
 }

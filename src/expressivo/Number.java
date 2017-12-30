@@ -44,4 +44,9 @@ public class Number implements Expression {
     public int hashCode() {
         return Double.valueOf(number).hashCode();
     }
+
+    @Override
+    public Expression differentiate(String variable) {
+        return Expression.makeNumber(0);
+    }
 }

@@ -38,7 +38,7 @@ import expressivo.parser.ExpressionParser.SumContext;
  */
 public interface Expression {
 
-    // Datatype definition
+    // Data Type definition
     // Expression = Number(n:int) +
     // Plus(left:Expression, right:Expression) +
     // Into(left:Expression, right:Expression)
@@ -131,6 +131,13 @@ public interface Expression {
     public static Expression makeInto(Expression left, Expression right) {
         return new Into(left, right);
     }
+    
+    // Required methods
+    /**
+     * 
+     * @return differentiation of expression
+     */
+    public Expression differentiate(String variable);
 }
 
 class MakeExpression implements ExpressionListener {

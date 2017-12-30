@@ -52,4 +52,9 @@ public class Plus implements Expression {
     public int hashCode() {
         return left.hashCode() ^ right.hashCode();
     }
+
+    @Override
+    public Expression differentiate(String variable) {
+        return Expression.makePlus(left.differentiate(variable), right.differentiate(variable));
+    }
 }
