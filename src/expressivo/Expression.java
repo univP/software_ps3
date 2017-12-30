@@ -4,6 +4,7 @@
 package expressivo;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Stack;
 
 import org.antlr.v4.gui.Trees;
@@ -138,6 +139,8 @@ public interface Expression {
      * @return differentiation of expression
      */
     public Expression differentiate(String variable);
+    
+    public double simplify(Map<String, Double> environment) throws NotANumberException;
 }
 
 class MakeExpression implements ExpressionListener {

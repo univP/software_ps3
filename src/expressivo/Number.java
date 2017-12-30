@@ -3,6 +3,8 @@
  */
 package expressivo;
 
+import java.util.Map;
+
 /**
  * @author pao214 Immutable.
  * 
@@ -48,5 +50,10 @@ public class Number implements Expression {
     @Override
     public Expression differentiate(String variable) {
         return Expression.makeNumber(0);
+    }
+
+    @Override
+    public double simplify(Map<String, Double> environment) {
+        return number;
     }
 }

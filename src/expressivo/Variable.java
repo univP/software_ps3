@@ -3,6 +3,8 @@
  */
 package expressivo;
 
+import java.util.Map;
+
 /**
  * @author pao214
  *
@@ -51,6 +53,15 @@ public class Variable implements Expression {
             return Expression.makeNumber(1);
         } else {
             return Expression.makeNumber(0);
+        }
+    }
+
+    @Override
+    public double simplify(Map<String, Double> environment) throws NotANumberException {
+        if (environment.containsKey(variable)) {
+            return environment.get(variable);
+        } else {
+            throw new NotANumberException();
         }
     }
 }

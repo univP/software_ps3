@@ -3,6 +3,8 @@
  */
 package expressivo;
 
+import java.util.Map;
+
 /**
  * @author pao214 Immutable.
  *
@@ -56,5 +58,10 @@ public class Plus implements Expression {
     @Override
     public Expression differentiate(String variable) {
         return Expression.makePlus(left.differentiate(variable), right.differentiate(variable));
+    }
+
+    @Override
+    public double simplify(Map<String, Double> environment) throws NotANumberException {
+        return left.simplify(environment)+right.simplify(environment);
     }
 }

@@ -3,6 +3,8 @@
  */
 package expressivo;
 
+import java.util.Map;
+
 /**
  * @author pao214 Immutable.
  *
@@ -57,5 +59,10 @@ public class Into implements Expression {
     public Expression differentiate(String variable) {
         return Expression.makePlus(Expression.makeInto(left, right.differentiate(variable)),
                 Expression.makeInto(left.differentiate(variable), right));
+    }
+
+    @Override
+    public double simplify(Map<String, Double> environment) throws NotANumberException {
+        return left.simplify(environment)*right.simplify(environment);
     }
 }
